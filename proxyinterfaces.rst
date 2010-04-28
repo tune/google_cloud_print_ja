@@ -24,6 +24,26 @@ Google Cloud Print Service Interface Reference
  * control : プリントジョブの状態取得
  * fetch : 次のプリントジョブの取得
 
+------
+fetch
+------
+	{
+	 "success": true,
+	 "jobs": [
+	  {
+	   "id": "3432682791683548017",
+	   "title": "CloudPrint_Architecture.pdf",
+	   "status": "QUEUED",
+	   "fileUrl": "http://docs.google.com/printing/download?id\u003d3432682791683548017",
+	   "ticketUrl": "http://docs.google.com/printing/fetch?output\u003dxml\u0026jobid\u003d3432682791683548017"
+	  }
+	 ]
+	}
+fileUrlは印刷データを指す。プリンタはHTTPのMIMEタイプを見て直接印刷可能かを判断する。
+出来なければticketURLを使ってPDFでデータを受け取る。
+当初はPDFのみをサポートするが他のフォーマット(例えばXPS)も将来サポートするかも知れない。
+変換はGoogle Cloud Printが担当する。
+
 
 Common Output Control Parameters and Values
 =============================================
